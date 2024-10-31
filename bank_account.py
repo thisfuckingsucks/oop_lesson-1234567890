@@ -27,6 +27,13 @@ class AccountDB:
             s += str(account) + ", "
         return s
 
+    def delete(self,account_num):
+        for i in range(len(self.account_database)):
+            if self.account_database[i].account_number == account_num:
+                self.account_database.pop(i)
+                return
+        print('Account not found.')
+
 
 class Account:
     def __init__(self, num, type, account_name, balance):
@@ -63,5 +70,7 @@ my_account_DB.search_public("0003").deposit(50)
 print(my_account_DB)
 my_account_DB.search_public("0003").withdraw(100)
 print(my_account_DB)
-my_account_DB.search_public("0010").deposit(50)
+my_account_DB.delete('0004')
+print(my_account_DB)
+my_account_DB.delete('0004')
 print(my_account_DB)
