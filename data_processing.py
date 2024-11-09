@@ -142,3 +142,7 @@ print(database.search('city').filter(lambda x: x['country'] == 'Italy').aggregat
 print(aggregate('temperature',lambda x: max(x),(filter(lambda x: x['country'] == 'Sweden', cities))))
 
 print(database.search('city').filter(lambda x: x['country'] == 'Sweden').aggregate(lambda x: max(x),'temperature'))
+
+# print min and max latitude for all cities
+print(database.search('city').aggregate(lambda x: min(x), 'latitude'))
+print(database.search('city').aggregate(lambda x: max(x), 'latitude'))
